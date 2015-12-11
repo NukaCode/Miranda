@@ -1,0 +1,46 @@
+@import "../../bootstrap/less/bootstrap/mixins/panels";
+
+.panel-dark {
+  .panel-variant(@gray-darker; #ffffff; @gray-darker; @gray-darker);
+
+  .panel-footer {
+    border-color:     @gray-darker;
+    background-color: @gray-darker;
+  }
+}
+
+.slim-panel {
+  .panel-body {
+    padding: 0;
+
+    div {
+      border-radius: 0;
+    }
+  }
+  .panel-footer {
+    padding: 0;
+
+    .btn, .btn-group {
+      border-top-right-radius: 0;
+      border-top-left-radius:  0;
+    }
+  }
+}
+
+.project-panel {
+  .panel-body {
+    margin-right: -1px;
+
+    .statcard {
+      //margin: 3px 0;
+    }
+  }
+
+  .list-group-item {
+    border: none;
+  }
+
+  .panel-footer {
+    margin-right: -1px;
+  }
+}

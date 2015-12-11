@@ -54,7 +54,7 @@ elixir(function (mix) {
                 'vendor/algoliasearch.js',
                 'vendor/dropzone.js',
                 'vendor/marquee.js',
-                'custom/algolia.js',
+                'custom/delete-link.js',
             ], 'public/js/all.js')
 
         // CSS

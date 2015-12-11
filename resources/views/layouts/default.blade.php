@@ -4,9 +4,10 @@
         @include('layouts.partials.header')
     </head>
     <body>
-        @include('layouts.partials.menu')
+        @include('layouts.partials.icon-menu')
+        @include('layouts.partials.dash-head')
 
-        <div class=container" id="content" style="margin-left: 80px; margin-top: 5px;">
+        <div class=container" id="content" style="margin-left: 80px;">
             @if (isset($content))
                 {!! $content !!}
             @else

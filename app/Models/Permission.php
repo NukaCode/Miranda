@@ -16,6 +16,12 @@ namespace App\Models;
  * @method static \Illuminate\Database\Query\Builder|\NukaCode\Core\Models\BaseModel active()
  * @method static \Illuminate\Database\Query\Builder|\NukaCode\Core\Models\BaseModel inactive()
  * @property mixed $deleted_at
+ * @property string $key_name
+ * @method static \Illuminate\Database\Query\Builder|\App\Models\Permission whereId($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Models\Permission whereName($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Models\Permission whereKeyName($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Models\Permission whereCreatedAt($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Models\Permission whereUpdatedAt($value)
  */
 class Permission extends BaseModel
 {

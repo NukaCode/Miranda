@@ -16,8 +16,8 @@ class CreateIssuesTables extends Migration
             $table->increments('id');
             $table->integer('parent_id')->nullable()->unsigned()->index();
             $table->integer('project_id')->unsigned()->index();
-            $table->integer('created_by')->unsigned()->index();
-            $table->integer('assigned_to')->unsigned()->index();
+            $table->integer('created_by')->nullable()->unsigned()->index();
+            $table->integer('assigned_to')->nullable()->unsigned()->index();
             $table->string('name');
             $table->string('key')->unique();
             $table->text('description')->nullable();

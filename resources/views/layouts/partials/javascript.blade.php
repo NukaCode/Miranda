@@ -10,14 +10,6 @@
 
 <script>
   $(document).ready(function () {
-    // Set up Vue loading
-    var vueObject = $('#vue');
-
-    if (vueObject.length) {
-      vueObject.attr('v-cloak', null);
-      vueObject.append('<div id="overlay"><i class="fa fa-spinner fa-spin"></i></div>');
-    }
-
     bootbox.setDefaults({backdrop: false});
 
     $("a.confirm-remove").click(function (e) {
@@ -78,7 +70,7 @@
     $('[data-toggle="tooltip"]').tooltip()
 
     var mainError = {!! (Session::has('error') ? json_encode(Session::get('error')) : 0) !!};
-    var mainErrors = {!! (Session::has('errors') ? json_encode(implode('<br />', Session::get('errors')->all())) : 0) !!};
+    var mainErrors = {!! (Session::has('errors') ? json_encode(Session::get('errors')->all()) : 0) !!};
     var mainMessage = {!! (Session::has('message') ? json_encode(Session::get('message')) : 0) !!};
     var mainWarning = {!! (Session::has('warning') ? json_encode(Session::get('warning')) : 0) !!};
     var mainTwitch = {!! (Session::has('twitch') ? json_encode(Session::get('twitch')) : 0) !!};
@@ -112,12 +104,12 @@
     if (mainErrors != 0) {
       $.each(mainErrors, function () {
         $.notify({
-          message: this,
-          icon: 'fa fa-exclamation-triangle'
-        }, {
-          // settings
-          type: 'danger'
-        });
+           message: this,
+           icon: 'fa fa-exclamation-triangle'
+         }, {
+           // settings
+           type: 'danger'
+         });
       });
     }
 

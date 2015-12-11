@@ -16,6 +16,12 @@ namespace App\Models;
  * @method static \Illuminate\Database\Query\Builder|\NukaCode\Core\Models\BaseModel active()
  * @method static \Illuminate\Database\Query\Builder|\NukaCode\Core\Models\BaseModel inactive()
  * @property mixed $deleted_at
+ * @property string $key_name
+ * @method static \Illuminate\Database\Query\Builder|\App\Models\Role whereId($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Models\Role whereName($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Models\Role whereKeyName($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Models\Role whereCreatedAt($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Models\Role whereUpdatedAt($value)
  */
 class Role extends BaseModel
 {

@@ -12,7 +12,11 @@
         "nukacode/menu": "~1.0",
         "esensi/loaders": "0.5.*",
         "laravelcollective/html": "^5.1",
-        "rap2hpoutre/laravel-log-viewer": "^0.4.2"
+        "rap2hpoutre/laravel-log-viewer": "^0.4.2",
+        "barryvdh/laravel-ide-helper": "^2.1",
+        "adamwathan/bootforms": "^0.7.1",
+        "thomaswelton/laravel-gravatar": "^1.1",
+        "erusev/parsedown": "^1.6"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

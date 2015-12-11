@@ -2,40 +2,51 @@
 
 namespace App\Http\Controllers;
 
-class ProjectController extends BaseController
+use App\Http\Requests\Project\CreateProjectRequest;
+use App\Http\Requests\Project\UpdateProjectRequest;
+use App\Models\Project;
+
+class ProjectController extends ResourceController
 {
-    public function index()
+    protected $title = 'Projects';
+
+    protected $property = 'project';
+
+    protected $model;
+
+    public function __construct(Project $project)
     {
-        //
+        parent::__construct();
+
+        $this->model = $project;
+
+        $this->setBreadCrumbs([
+            'List'   => 'project.index',
+            'Create' => 'project.create',
+        ]);
     }
 
-    public function show($id)
+    public function store(CreateProjectRequest $request)
     {
-        //
+        $this->model->create($request->all());
+
+        return redirect(route('project.index'))->with('message', 'Project was created.');
     }
 
-    public function create()
+    public function update(UpdateProjectRequest $request, $id)
     {
-        //
+        $project = $this->model->findOrFail($id);
+        $data    = array_merge($request->all());
+        $project->update($data);
+
+        return redirect(route('project.index'))->with('message', 'Project was updated.');
     }
 
-    public function store()
+    public function destroy($id)
     {
-        //
-    }
+        $project = $this->model->findOrFail($id);
+        $project->delete();
 
-    public function edit($id)
-    {
-        //
-    }
-
-    public function update($id)
-    {
-        //
-    }
-
-    public function delete($id)
-    {
-        //
+        return redirect(route('project.index'))->with('message', 'Project deleted.');
     }
 }

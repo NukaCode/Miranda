@@ -1,0 +1,40 @@
+.dashhead {
+  margin-left:      70px;
+  background-color: lighten(@iconav-brand-bg, 5%);
+  height:           66px;
+  margin-bottom:    10px;
+
+  .dashhead-titles {
+    padding-left: 15px;
+    padding-top:  10px;
+  }
+
+  .dashhead-breadcrumbs {
+    float:        left;
+    padding-left: 50px;
+    position:     relative;
+    top:          50%;
+    transform:    translateY(-50%);
+  }
+
+  .dashhead-toolbar {
+    padding-right: 10px;
+  }
+
+  @media (min-width: 992px) {
+    .navbar-right {
+      margin-right: 0;
+    }
+  }
+
+  .dropdown {
+    position:  relative;
+    top:       50%;
+    transform: translateY(-50%);
+    height:    25px;
+
+    .dropdown-toggle {
+      position: inherit;
+    }
+  }
+}

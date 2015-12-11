@@ -7,18 +7,28 @@
       <span class="icon-bar"></span>
       <span class="icon-bar"></span>
     </button>
-    @if (app()->environment() == 'dev')
-      <a class="navbar-brand" href="{!! route('home') !!}">Development Site</a>
-    @else
-      <a class="navbar-brand" href="{!! route('home') !!}">Cards Against Humanity</a>
-    @endif
   </div>
   <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-    @if (Menu::exists('leftMenu') && Menu::hasLinks('leftMenu'))
-      <ul class="nav navbar-nav">
-        @each('layouts.menus.twitter.item', Menu::render('leftMenu')->links, 'item')
-      </ul>
-    @endif
+    <ul class="nav navbar-nav">
+      <li>
+        <div class="dashhead" style="padding-left: 15px; padding-top: 10px;padding-right: 25px;">
+          <div class="dashhead-titles">
+            <h6 class="dashhead-subtitle">{!! $subTitle or 'Subtitle' !!}</h6>
+
+            <h3 class="dashhead-title">{!! $title or 'Title' !!}</h3>
+          </div>
+        </div>
+      </li>
+      @if (isset($breadcrumbs) && count($breadcrumbs) > 0)
+        @foreach($breadcrumbs as $text => $route)
+          <li>
+            <a href="{!! route($route) !!}">
+              {!! $text !!}
+            </a>
+          </li>
+        @endforeach
+      @endif
+    </ul>
     <div class="hidden-md hidden-lg">
       @if (Menu::exists('rightMenu') && Menu::hasLinks('rightMenu'))
         <ul class="nav navbar-nav navbar-right">
@@ -37,4 +47,4 @@
     </div>
   </div>
 </nav>
-<br style="clear: both;"/>
+<div style="clear: both;"></div>
