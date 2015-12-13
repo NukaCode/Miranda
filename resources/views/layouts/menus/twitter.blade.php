@@ -22,6 +22,7 @@
       @if (isset($breadcrumbs) && count($breadcrumbs) > 0)
         @foreach($breadcrumbs as $text => $route)
           <li>
+            {!! dump($route) !!}
             <a href="{!! route($route) !!}">
               {!! $text !!}
             </a>

@@ -20,9 +20,19 @@ class AddStatusAndCommentsToIssues extends Migration
             $table->timestamps();
         });
 
+        Schema::create('issue_comment_types', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('name');
+            $table->string('key_name')->index();
+            $table->text('description')->nullable();
+            $table->timestamps();
+        });
+
         Schema::create('issue_comments', function (Blueprint $table) {
+            $table->increments('id');
             $table->integer('user_id')->unsigned();
             $table->integer('issue_id')->unsigned();
+            $table->integer('type_id')->unsigned()->integer();
             $table->text('body');
             $table->timestamps();
 
@@ -36,7 +46,9 @@ class AddStatusAndCommentsToIssues extends Migration
                   ->on('issues')
                   ->onDelete('cascade');
 
-            $table->primary(['user_id', 'issue_id']);
+            $table->foreign('type_id')
+                  ->references('id')
+                  ->on('issue_comment_types');
         });
     }
 

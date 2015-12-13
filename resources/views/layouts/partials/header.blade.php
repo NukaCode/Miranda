@@ -1,5 +1,6 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="token" content="{!! csrf_token() !!}">
 <title>{!! $pageTitle or null !!} | Miranda PM</title>
 
 <link rel="shortcut icon" href="{!! URL::to('/favicon.ico') !!}" />

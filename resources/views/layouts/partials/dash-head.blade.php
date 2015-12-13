@@ -9,7 +9,7 @@
     <ul class="nav nav-bordered">
       @if (isset($breadcrumbs) && count($breadcrumbs) > 0)
         @foreach ($breadcrumbs as $text => $route)
-          <li><a href="{!! $route !!}">{!! $text !!}</a></li>
+          <li><a href="{!! route($route) !!}">{!! $text !!}</a></li>
         @endforeach
       @endif
     </ul>

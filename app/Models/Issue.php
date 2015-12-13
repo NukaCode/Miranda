@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Issue\Comment;
 use App\Models\Issue\Status;
 
 class Issue extends BaseModel
@@ -28,6 +29,17 @@ class Issue extends BaseModel
         'status_name',
         'parsed_description',
     ];
+
+    protected $with = [
+        'comments',
+    ];
+
+    public function postComment($request)
+    {
+        $comment = new Comment($request);
+
+        $this->comments()->save($comment);
+    }
 
     public function getProjectNameAttribute()
     {
@@ -64,6 +76,11 @@ class Issue extends BaseModel
     public function project()
     {
         return $this->belongsTo(Project::class, 'project_id');
+    }
+
+    public function comments()
+    {
+        return $this->hasMany(Comment::class, 'issue_id');
     }
 
     public function creator()

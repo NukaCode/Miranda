@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
     <div class="col-md-offset-2 col-md-8">
-      <div class="panel panel-default m-a-lg">
+      <div class="panel panel-dark m-a-lg">
         <div class="panel-heading">
           <h3 class="panel-title">Register</h3>
         </div>

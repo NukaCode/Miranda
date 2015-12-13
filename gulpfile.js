@@ -46,6 +46,8 @@ elixir(function (mix) {
                 'vendor/bootstrap-notify.js',
                 'vendor/vue.js',
                 'vendor/vue-resource.js',
+                'custom/components/issue.js',
+                'custom/components/comment.js',
                 'vendor/typeahead.js',
                 'vendor/bootbox.js',
                 'vendor/highcharts.js',

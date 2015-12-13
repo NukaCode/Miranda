@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\Issue\CommentRequest;
 use App\Http\Requests\Issue\CreateIssueRequest;
 use App\Http\Requests\Issue\UpdateIssueRequest;
 use App\Models\Issue;
 use App\Models\Project;
+use App\Models\Type\CommentType;
 
 class IssueController extends ResourceController
 {
@@ -34,9 +36,19 @@ class IssueController extends ResourceController
     {
         $issues   = Issue::byProject($projectId)->get();
         $statuses = Issue\Status::all();
+        $types    = CommentType::where('key_name', '!=', 'external')->get();
 
         $this->setViewPath('issue.index');
-        $this->setJavascriptData(compact('issues', 'statuses'));
+        $this->setJavascriptData(compact('issues', 'statuses', 'types'));
+    }
+
+    public function comment(CommentRequest $request, $id)
+    {
+        $issue = $this->model->find($id);
+        $issue->postComment($request->all());
+        $issue = $this->model->find($id);
+
+        return response()->json($issue);
     }
 
     public function create()
